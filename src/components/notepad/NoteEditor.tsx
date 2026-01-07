@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import Button from "../ui/Button.tsx";
 
 type NoteEditorProps = {
     note: string;
@@ -23,17 +24,7 @@ function NoteEditor({ note, setNote }: NoteEditorProps) {
 
     return (
         <div style={{ marginBottom: "2rem" }}>
-            <button
-                onClick={clearNote}
-                style={{
-                    marginBottom: "1rem",
-                    padding: "0.5rem 1rem",
-                    borderRadius: "6px",
-                    cursor: "pointer",
-                }}
-            >
-                Clear Note
-            </button>
+            <Button label="Clear Note" onClick={clearNote} />
 
             <textarea
                 ref={textareaRef}
