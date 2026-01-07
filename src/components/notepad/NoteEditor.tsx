@@ -14,8 +14,27 @@ function NoteEditor({ note, setNote }: NoteEditorProps) {
         }
     }, []);
 
+    const clearNote = () => {
+        setNote("");
+        if (textareaRef.current)
+        { textareaRef.current.focus();
+        }
+    };
+
     return (
         <div style={{ marginBottom: "2rem" }}>
+            <button
+                onClick={clearNote}
+                style={{
+                    marginBottom: "1rem",
+                    padding: "0.5rem 1rem",
+                    borderRadius: "6px",
+                    cursor: "pointer",
+                }}
+            >
+                Clear Note
+            </button>
+
             <textarea
                 ref={textareaRef}
                 value={note}
