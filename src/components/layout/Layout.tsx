@@ -11,7 +11,7 @@ function Layout({ children }: LayoutProps) {
         <>
             <Header />
             <div style={{
-                maxWidth: "800px",
+                maxWidth: 800,
                 margin: "auto",
                 padding: "2rem 1rem",
                 minHeight: "80vh"
