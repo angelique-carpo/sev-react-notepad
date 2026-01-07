@@ -3,25 +3,23 @@ type SaveStatusProps = {
 };
 
 function SaveStatus({ status }: SaveStatusProps) {
-    let message = "";
-    let color = "";
+    const statusMap = {
+        saved: { message: "Αποθηκεύτηκε", color: "green" },
+        saving: { message: "Αποθήκευση...", color: "orange" },
+        unsaved: { message: "Μη αποθηκευμένο", color: "red" },
+    };
 
-    if (status === "saved") {
-        message = "Αποθηκεύτηκε";
-        color = "green";
-    } else if (status === "saving") {
-        message = "Αποθήκευση...";
-        color = "orange";
-    } else if (status === "unsaved") {
-        message = "Μη αποθηκευμένο";
-        color = "red";
-    }
+    const { message, color } = statusMap[status];
 
     return (
-        <div style={{ marginBottom: "1rem", fontWeight: "bold", color }}>
+        <div style={{
+            marginBottom: "1rem",
+            fontWeight: "bold",
+            color }}>
             {message}
         </div>
     );
 }
 
 export default SaveStatus;
+

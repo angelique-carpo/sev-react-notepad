@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import NoteEditor from "./NoteEditor";
-import SaveStatus from "./SaveStatus";
-import NotePreview from "./NotePreview";
+import NoteEditor from "./NoteEditor.tsx";
+import NotePreview from "./NotePreview.tsx";
 
 function NotePad() {
     const [note, setNote] = useState("");
@@ -21,9 +20,7 @@ function NotePad() {
         }
     }, []);
 
-    // Auto-save effect
     useEffect(() => {
-        // If the note is empty, don't save
         if (note === "") {
             setStatus("unsaved");
             return;
@@ -39,18 +36,26 @@ function NotePad() {
 
             setLastSaved(time);
             setStatus("saved");
-        }, 1000); // save after 1 second of inactivity
+        }, 1000);
 
         return () => clearTimeout(timeout);
     }, [note]);
 
     return (
         <div>
-            <SaveStatus status={status} />
-            <NoteEditor note={note} setNote={setNote} />
-            <NotePreview note={note} lastSaved={lastSaved} />
+            <NoteEditor
+                note={note}
+                setNote={setNote}
+                status={status}
+            />
+
+            <NotePreview
+                note={note}
+                lastSaved={lastSaved}
+            />
         </div>
     );
 }
 
 export default NotePad;
+

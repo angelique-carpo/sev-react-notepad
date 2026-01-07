@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import Button from "../ui/Button";
+import Button from "../ui/Button.tsx";
+import SaveStatus from "./SaveStatus.tsx";
 
 type NoteEditorProps = {
     note: string;
     setNote: (value: string) => void;
+    status: "saved" | "unsaved" | "saving";
 };
 
-function NoteEditor({ note, setNote }: NoteEditorProps) {
+function NoteEditor({ note, setNote, status }: NoteEditorProps) {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [fontSize, setFontSize] = useState(16);
 
@@ -30,6 +32,8 @@ function NoteEditor({ note, setNote }: NoteEditorProps) {
                 <Button label="A+" onClick={increaseFont} />
                 <Button label="A-" onClick={decreaseFont} />
             </div>
+
+            <SaveStatus status={status} />
 
             <textarea
                 ref={textareaRef}
