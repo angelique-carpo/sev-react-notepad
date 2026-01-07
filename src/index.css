@@ -81,6 +81,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+body,
+.note-editor,
+.note-preview,
+button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 1rem;

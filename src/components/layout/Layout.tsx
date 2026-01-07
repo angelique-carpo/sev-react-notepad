@@ -12,7 +12,7 @@ function Layout({ children }: LayoutProps) {
             <Header />
             <div style={{
                 maxWidth: "800px",
-                margin: "0 auto",
+                margin: "auto",
                 padding: "2rem 1rem",
                 minHeight: "80vh"
             }}>
