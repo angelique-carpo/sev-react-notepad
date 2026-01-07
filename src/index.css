@@ -33,6 +33,7 @@ body {
   width: 100%;
   background-color: var(--bg-color);
   color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -66,21 +67,28 @@ button {
   transition: background-color 0.25s, border-color 0.25s;
 }
 
-button:hover {
+.button-shared {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 1rem;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.button-shared:hover {
   background-color: var(--button-hover);
-  border-color: #646cff;
-}
+  border-color: #646cff; }
 
-button:focus,
-button:focus-visible {
+.button-shared:focus,
+.button-shared:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-body,
-.note-editor,
-.note-preview,
-button {
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -89,11 +97,6 @@ button {
     flex-direction: column;
     align-items: stretch;
     max-width: none;
-  }
-
-  button {
-    width: 100%;
-    margin-bottom: 1rem;
   }
 
   .note-container {

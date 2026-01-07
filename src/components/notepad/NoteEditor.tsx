@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import Button from "../ui/Button.tsx";
+import { useEffect, useRef, useState } from "react";
+import Button from "../ui/Button";
 
 type NoteEditorProps = {
     note: string;
@@ -8,23 +8,28 @@ type NoteEditorProps = {
 
 function NoteEditor({ note, setNote }: NoteEditorProps) {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const [fontSize, setFontSize] = useState(16);
 
     useEffect(() => {
-        if (textareaRef.current) {
-            textareaRef.current.focus();
-        }
+        textareaRef.current?.focus();
     }, []);
 
     const clearNote = () => {
         setNote("");
-        if (textareaRef.current)
-        { textareaRef.current.focus();
-        }
+        textareaRef.current?.focus();
     };
+
+    const increaseFont = () => setFontSize(prev => Math.min(prev + 2, 40));
+    const decreaseFont = () => setFontSize(prev => Math.max(prev - 2, 10));
 
     return (
         <div style={{ marginBottom: "2rem" }}>
             <Button label="Clear Note" onClick={clearNote} />
+
+            <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1rem" }}>
+                <Button label="A+" onClick={increaseFont} />
+                <Button label="A-" onClick={decreaseFont} />
+            </div>
 
             <textarea
                 ref={textareaRef}
@@ -35,7 +40,7 @@ function NoteEditor({ note, setNote }: NoteEditorProps) {
                 style={{
                     width: "100%",
                     padding: "1rem",
-                    fontSize: "1rem",
+                    fontSize: `${fontSize}px`,
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     resize: "vertical",
@@ -46,4 +51,5 @@ function NoteEditor({ note, setNote }: NoteEditorProps) {
 }
 
 export default NoteEditor;
+
 
