@@ -16,6 +16,7 @@ function Layout({ children }: LayoutProps) {
                 padding: "2rem 1rem",
                 minHeight: "80vh"
             }}>
+
                 {children}
             </div>
             <Footer />
