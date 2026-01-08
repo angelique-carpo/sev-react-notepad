@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import NoteEditor from "./NoteEditor.tsx";
 import NotePreview from "./NotePreview.tsx";
+import LocalStoragePreview from "./LocalStoragePreview.tsx";
+
 
 function NotePad() {
     const [note, setNote] = useState("");
@@ -53,6 +55,8 @@ function NotePad() {
                 note={note}
                 lastSaved={lastSaved}
             />
+
+            <LocalStoragePreview/>
         </div>
     );
 }
