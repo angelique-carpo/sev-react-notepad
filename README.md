@@ -3,8 +3,8 @@
 A simple React-based notepad with auto-save, dark/light mode, and real-time note statistics.
 
 ## Screenshot
-
-<img width="1315" height="968" alt="Screenshot for README 1" src="https://github.com/user-attachments/assets/8ba011ef-4692-4311-88fd-7491f3f5c7f9" />
+![react-notepad-lighttheme](https://github.com/user-attachments/assets/20ba3bd9-ec7b-4979-bab4-985c1522234e)
+![react-notepad-darktheme](https://github.com/user-attachments/assets/f5f8908a-401e-49e2-8fc7-b27542ac07c3)
 
 ## Features
 
